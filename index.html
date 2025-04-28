@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Kalachev | Digital Business Card</title>
+    <link rel="icon" href="mk-favicon.png">
+    <style>
+        /* Catppuccin Mocha Colors */
+        :root {
+            --background: #1e1e2e;
+            --surface: #313244;
+            --overlay: #585b70;
+            --mauve: #cba6f7;
+            --text: #cdd6f4;
+            --subtext: #a6adc8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 15vh;
+            background-color: var(--background);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(6px) brightness(0.7);
+            z-index: -1;
+        }
+        
+        .card {
+            background-color: rgba(49, 50, 68, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 3px solid var(--mauve);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        
+        .email {
+            font-size: 1.8rem;
+            color: var(--subtext);
+            margin-bottom: 40px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background-color: rgba(88, 91, 112, 0.8);
+            color: var(--text);
+            border: 2px solid var(--mauve);
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            flex: 1;
+            min-width: 180px;
+            max-width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .btn:hover {
+            background-color: var(--mauve);
+            color: var(--background);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(203, 166, 247, 0.3);
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            filter: invert(100%);
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .btn:hover .icon {
+            filter: invert(10%);
+        }
+        
+        @media (max-width: 700px) {
+            .card {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .email {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                font-size: 1.3rem;
+                padding: 12px 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .email {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            
+            .btn {
+                max-width: 100%;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Matthew Kalachev</h1>
+        <p class="email">contact@matthewkalachev.com</p>
+        <div class="buttons">
+            <a href="mailto:contact@matthewkalachev.com" class="btn">
+                <img src="email-icon.png" alt="Email" class="icon">
+                Email Me
+            </a>
+            <a href="https://linkedin.com/in/matthew-kalachev" class="btn">
+                <img src="linkedin-icon.png" alt="LinkedIn" class="icon">
+                LinkedIn
+            </a>
+        </div>
+    </div>
+</body>
+</html>
